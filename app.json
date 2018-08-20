@@ -1,0 +1,32 @@
+{
+  "name": "Pleroma",
+  "description": "A Pleroma instance, an alternative fediverse server",
+  "repository": "https://git.pleroma.social/pleroma/pleroma",
+  "logo": "https://github.com/syui.png",
+  "env": {
+    "HEROKU": {
+      "description": "Leave this as true",
+      "value": "true",
+      "required": true
+    },
+    "LOCAL_DOMAIN": {
+      "description": "The domain that your Pleroma instance will run on (this can be appname.herokuapp.com or a custom domain)",
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "description": "The secret key base",
+      "generator": "secret"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "MIX_ENV=prod POOL_SIZE=2 mix ecto.migrate && mix phx.server"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
