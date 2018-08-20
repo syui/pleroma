@@ -43,6 +43,13 @@ $ heroku run "mix set_moderator $USER" -a $APP_NAME
 
 # single user mode
 $ vim config/config.exs
-	+ config :pleroma, :instance, registrations_open: false,
-	+ config :pleroma, :chat, enabled: false
++ config :pleroma, :instance, registrations_open: false,
++ config :pleroma, :chat, enabled: false
+
+# avator
+$ vim config/prod.exs
++ config :pleroma, :media_proxy,
++   enabled: true,
++   redirect_on_failure: true,
++   base_url: "https://syui.gitlab.io/img/pleroma"
 ```
