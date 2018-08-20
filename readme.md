@@ -46,7 +46,7 @@ $ vim config/config.exs
 + config :pleroma, :instance, registrations_open: false,
 + config :pleroma, :chat, enabled: false
 
-# avator
+# avatar
 $ vim config/prod.exs
 + config :pleroma, :media_proxy,
 +   enabled: true,
