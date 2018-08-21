@@ -9,6 +9,8 @@ repo : https://git.pleroma.social/pleroma/pleroma
 ```sh
 $ heroku create $APP_NAME
 
+$ heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
+
 $ git clone https://git.pleroma.social/pleroma/pleroma
 $ git clone https://github.com/syui/pleroma pleroma-tmp
 
